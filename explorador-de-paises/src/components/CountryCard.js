@@ -16,12 +16,15 @@ function CountryCard({ country }){
                     {country.name.common}
                 </Typography>
                 <Typography  color="rgb(5, 34, 10)">
-                    Região: {country.region}
+                    Region: {country.region}
                 </Typography>
                 <Typography color="rgb(5, 34, 10)">
-                    Idioma: {country.languages
+                    Language: {country.languages
                         ? Object.values(country.languages).join(',')
                         : 'Informação indispinível no momento'}
+                </Typography>
+                <Typography color="rgb(5, 34, 10)">
+                        Capital: {country.capital}
                 </Typography>
 
             </CardContent>

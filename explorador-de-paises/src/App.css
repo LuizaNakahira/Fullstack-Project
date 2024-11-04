@@ -25,7 +25,6 @@
 
 .MuiButton-root.buttonShowAll{
   display: flex;
-  display: flex;
   border: solid 1px #006400;
   border-radius: 20px;
   color: #ffffff;
@@ -43,10 +42,10 @@
   outline: none;
   box-shadow: none;
   width: 100%; 
+  background-color: #4682B4;
 }
 
 .searchForm .MuiInputBase-input {
   color: #4682B4; 
   cursor: pointer;
-  background-color: #4682B4;
 }
