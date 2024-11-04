@@ -1,6 +1,10 @@
 import React, { useState } from 'react';
 import SearchForm from './components/SearchForm';
+import CountryCard from './components/CountryCard';
+
+import {Box, Typography} from '@mui/material';
 import { fetchCountries } from './services/api';
+
 
 function App() {
   const [countries, setCountries] = useState([]);
@@ -46,26 +50,19 @@ function App() {
   };
 
   return (
-    <div>
-    <h1>Countries Explore</h1>
-    <SearchForm onSearch={handleSearch} onShowAll={handleShowAll} />
-    {errorMessage && <p style={{ color: 'red' }}>{errorMessage}</p>}
-    <div>
-      {countries.map((country) => (
-        <div key={country.name.common}>
-          <h3>{country.name.common}</h3>
-          <img src={country.flags.svg} alt={`Bandeira de ${country.name.common}`} style={{ width: '100px' }} />
-          <p>Region: {country.region}</p>
-          <p>
-            Language:{' '}
-            {country.languages
-              ? Object.values(country.languages).join(', ')
-              : 'Informação indisponível'}
-          </p>
-        </div>
-      ))}
-    </div>
-  </div>
+    <Box sx={{ textAlign: 'center', p:3,}}>
+      <Typography variant='h3' gutterBottom>Countries Explorer</Typography>
+      <SearchForm 
+        onSearch={handleSearch}
+        onShowAll={handleShowAll}
+      />
+      {errorMessage && <Typography color='error'>{errorMessage}</Typography>}
+      <Box sx={{ display: 'flex', flexWrap: 'wrap', justifyContent: 'center'}}>
+        {countries.map((country) => (
+          <CountryCard key={country.name.commom} country={country}/>
+        ))}
+      </Box>
+    </Box>
   );
 }
 

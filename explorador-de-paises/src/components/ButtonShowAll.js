@@ -1,10 +1,12 @@
 import React from "react";
+import { Button } from '@mui/material';
+
 
 function ButtonShowAll({ onShowAll }){
     return(
-        <button type="button" onClick={onShowAll}>
+        <Button onClick={onShowAll} variant="contained">
             SHOW ALL
-        </button>
+        </Button>
     );
 }
 

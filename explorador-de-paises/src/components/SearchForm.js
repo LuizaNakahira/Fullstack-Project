@@ -1,6 +1,7 @@
 import React, {useState} from 'react';
 import SearchButton from './SearchButton';
 import ButtonShowAll from './ButtonShowAll';
+import { TextField, Box } from '@mui/material';
 
 function SearchForm({ onSearch, onShowAll }) {
     const [countryName, setCountryName] = useState('');
@@ -11,18 +12,20 @@ function SearchForm({ onSearch, onShowAll }) {
     };
 
     return(
-        <form onSubmit={handleSubmit}>
-            <label>
-                Country name:
-                <input
-                    type='text'
-                    value={countryName}
-                    onChange={(event) => setCountryName(event.target.value)}
-                />
-            </label>
+        <Box
+            component="form"
+            onSubmit={handleSubmit}
+            sx={{ display: 'flex', flexDirection: 'column', gap: 2}}
+        >
+            <TextField 
+                label='Nome do país'
+                variant='outlined'
+                value={countryName}
+                onChange={(event) => setCountryName(event.target.value)}
+            />
             <SearchButton />
-            <ButtonShowAll onShowAll={onShowAll} />
-        </form>
+            <ButtonShowAll onShowAll={onShowAll}/>
+        </Box>           
     );
 };
 export default SearchForm;

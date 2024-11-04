@@ -1,10 +1,12 @@
 import React from "react";
+import { Button } from '@mui/material';
+
 
 function SearchButton() {
     return(
-        <button type="submit">
-            SEARCH
-        </button>
+        <Button variant="contained" type="submit">
+            Search
+        </Button>
     );
 }
 export default SearchButton;
