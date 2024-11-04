@@ -4,7 +4,7 @@ import { Button } from '@mui/material';
 
 function ButtonShowAll({ onShowAll }){
     return(
-        <Button onClick={onShowAll} variant="contained">
+        <Button onClick={onShowAll} variant="contained" className="MuiButton-root buttonShowAll">
             SHOW ALL
         </Button>
     );

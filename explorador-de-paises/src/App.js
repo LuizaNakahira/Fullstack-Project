@@ -1,4 +1,5 @@
 import React, { useState } from 'react';
+import './App.css';
 import SearchForm from './components/SearchForm';
 import CountryCard from './components/CountryCard';
 
@@ -50,19 +51,21 @@ function App() {
   };
 
   return (
-    <Box sx={{ textAlign: 'center', p:3,}}>
-      <Typography variant='h3' gutterBottom>Countries Explorer</Typography>
+    <div className='app-backgorund'>
+      <Box sx={{ textAlign: 'center', p:3}}>
+      <Typography variant='h2' gutterBottom className='MuiTypography-root title'>Countries Explorer</Typography>
       <SearchForm 
         onSearch={handleSearch}
         onShowAll={handleShowAll}
       />
       {errorMessage && <Typography color='error'>{errorMessage}</Typography>}
-      <Box sx={{ display: 'flex', flexWrap: 'wrap', justifyContent: 'center'}}>
+      <Box sx={{ display: 'flex', flexWrap: 'wrap', justifyContent: 'center', gap: 3}}>
         {countries.map((country) => (
           <CountryCard key={country.name.commom} country={country}/>
         ))}
       </Box>
     </Box>
+    </div>
   );
 }
 
