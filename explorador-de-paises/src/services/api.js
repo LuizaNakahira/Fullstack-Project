@@ -9,10 +9,17 @@ export const fetchCountries = async ({ countryName }) => {
         }
 
         const response = await axios.get(url);
-        return response.data;
+
+        const filteredCountries = countryName
+            ? response.data.filter(
+                (country) => country.name.common.toLowerCase() === countryName.toLowerCase()
+            )
+            : response.data;
+
+        return filteredCountries;
 
     } catch (error) {
-        console.log('Erro ao buscar países:', error);
+        console.log('Error when searching for countries:', error);
         throw error;
     };
 };

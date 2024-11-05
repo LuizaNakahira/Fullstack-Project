@@ -15,14 +15,14 @@ function App() {
     const { countryName } = searchParams;
     
     if (!countryName) {
-      setErrorMessage('Nenhum país encontrado. Preencha o nome do país e clique em buscar.');
+      setErrorMessage('No country found. Fill the country name and click for search.');
       return;
     } 
 
     fetchCountries({ countryName })
     .then((data) => {
       if (data.length === 0) {
-        setErrorMessage('Nenhum país encontrado com esse nome.');
+        setErrorMessage('No country with that name was found.');
         setCountries([]);
       } else {
         setCountries(data);
@@ -31,10 +31,10 @@ function App() {
     })
     .catch((error) => {
       if (error.response && error.response.status === 404) {
-        setErrorMessage('Tente novamente mais tarde.');
+        setErrorMessage('Try again later.');
         setCountries([]);
       } else {
-        console.log("Erro ao buscar países", error);
+        console.log("Error when searching for countries", error);
       }
     });
   };
@@ -46,7 +46,7 @@ function App() {
         setErrorMessage('');
       })
       .catch((error) => {
-        console.log("Erro ao buscar todos os países", error);
+        console.log("Error when searching for countries", error);
       });
   };
 
