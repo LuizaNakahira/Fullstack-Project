@@ -52,14 +52,14 @@ function App() {
 
   return (
     <div className='app-backgorund'>
-      <Box sx={{ textAlign: 'center', p:3}}>
+      <Box sx={{  textAlign: 'center', p: 3, display: 'flex', flexDirection: 'column', alignItems: 'center'}}>
       <Typography variant='h2' gutterBottom className='MuiTypography-root title'>Countries Explorer</Typography>
       <SearchForm 
         onSearch={handleSearch}
         onShowAll={handleShowAll}
       />
       {errorMessage && <Typography color='error'>{errorMessage}</Typography>}
-      <Box sx={{ display: 'flex', flexWrap: 'wrap', justifyContent: 'center', gap: 3}}>
+      <Box sx={{  display: 'flex', flexWrap: 'wrap', justifyContent: 'center', alignItems: 'center', gap: 3}}>
         {countries.map((country) => (
           <CountryCard key={country.name.commom} country={country}/>
         ))}

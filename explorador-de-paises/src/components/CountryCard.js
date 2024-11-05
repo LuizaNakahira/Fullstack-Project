@@ -3,7 +3,7 @@ import{Card, CardContent, CardMedia, Typography} from '@mui/material';
 
 function CountryCard({ country }){
     return(
-        <Card sx={{ maxWidth: 345, m: 2, backgroundColor: '#4682B4' }}>
+        <Card sx={{ maxWidth: 345, m: 2, backgroundColor: '#fffff' }}>
             <CardMedia 
                 component='img'
                 height='140'

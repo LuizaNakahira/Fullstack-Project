@@ -1,15 +1,24 @@
 .app-backgorund{
-  background-color: rgb(5, 34, 10);
+  background-color: #05220a;
   min-height: 100vh;
   display: flex;
   justify-content: center;
   align-items: center;
   gap: 20px;
   flex-direction: column;
+  align-items: center;
 }
 
 .title{
   color:#ffffff;
+}
+
+.ContainerForm {
+  display: flex;
+  flex-direction: column;
+  align-items: center; 
+  max-width: 600px;
+  width: 100%;
 }
 
 .MuiButton-root.buttonSearch{
@@ -21,6 +30,7 @@
   transition: background-color 0.5s ease, color 0.5s ease, transform 0.5s ease;
   cursor: pointer;
   font-weight: bold;  
+  padding: 10px 100px;
   }
 
 .MuiButton-root.buttonShowAll{
@@ -32,6 +42,7 @@
   transition: background-color 0.5s ease, color 0.5s ease, transform 0.5s ease;
   cursor: pointer;
   font-weight: bold;
+  padding: 10px 100px;
 }
 
 
@@ -42,10 +53,6 @@
   outline: none;
   box-shadow: none;
   width: 100%; 
-  background-color: #4682B4;
+  background-color: #05220a;
 }
 
-.searchForm .MuiInputBase-input {
-  color: #4682B4; 
-  cursor: pointer;
-}

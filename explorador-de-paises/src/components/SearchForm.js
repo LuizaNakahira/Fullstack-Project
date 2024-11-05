@@ -15,10 +15,11 @@ function SearchForm({ onSearch, onShowAll }) {
         <Box
             component="form"
             onSubmit={handleSubmit}
-            sx={{ display: 'flex', flexDirection: 'column', gap: 2, width: '100%', maxWidth: 600 }}
+            className='ContainerForm'
+            sx={{ gap: 2}}
         >
             <TextField 
-                label='Nome do país'
+                label='Country Name'
                 variant='outlined'
                 value={countryName}
                 onChange={(event) => setCountryName(event.target.value)}
@@ -26,14 +27,13 @@ function SearchForm({ onSearch, onShowAll }) {
                 fullWidth
                 sx={{
                     '& .MuiInputLabel-root': {
-                    color: '#ffffff',
+                    color: '#4682B4',
                     },
                     ':-khtml-any-link': {
                     color: '#ffffff',
                     },
                     '& .MuiInputBase-input': {
                     color: '#ffffff',
-                    borderRadius: '20px',
                     },
                 }}
             />
