@@ -31,7 +31,7 @@ function App() {
     })
     .catch((error) => {
       if (error.response && error.response.status === 404) {
-        setErrorMessage('Nenhum país encontrado com esse nome.');
+        setErrorMessage('Tente novamente mais tarde.');
         setCountries([]);
       } else {
         console.log("Erro ao buscar países", error);
