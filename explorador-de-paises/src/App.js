@@ -3,13 +3,14 @@ import './App.css';
 import SearchForm from './components/SearchForm';
 import CountryCard from './components/CountryCard';
 
-import {Box, Typography} from '@mui/material';
+import {Box, CircularProgress, Typography} from '@mui/material';
 import { fetchCountries } from './services/api';
 
 
 function App() {
   const [countries, setCountries] = useState([]);
   const [errorMessage, setErrorMessage] = useState('');
+  const [isLoading, setIsLoading] = useState(false);
 
   const memorizedCountries = useMemo(() => countries, [countries]);
 
@@ -39,6 +40,8 @@ function App() {
   };
 
   const handleShowAll = () => {
+    setIsLoading(true);
+    const delay = 7000;
     fetchCountries({})
       .then((data) => {
         setCountries(data);
@@ -46,23 +49,30 @@ function App() {
       })
       .catch((error) => {
         console.log("Error when searching for countries", error);
-      });
+      })
+      .finally(() => setIsLoading(false), delay);
   };
 
   return (
     <div className='app-backgorund'>
       <Box sx={{  textAlign: 'center', p: 3, display: 'flex', flexDirection: 'column', alignItems: 'center'}}>
-      <Typography variant='h2' gutterBottom className='MuiTypography-root title'>Countries Explorer</Typography>
-      <SearchForm 
-        onSearch={handleSearch}
-        onShowAll={handleShowAll}
-      />
-      {errorMessage && <Typography color='error'>{errorMessage}</Typography>}
-      <Box sx={{  display: 'flex', flexWrap: 'wrap', justifyContent: 'center', alignItems: 'center', gap: 3}}>
-        {memorizedCountries.map((country) => (
-          <CountryCard key={country.name.commom} country={country}/>
-        ))}
-      </Box>
+        <Typography variant='h2' gutterBottom className='MuiTypography-root title'>Countries Explorer</Typography>
+        <SearchForm 
+          onSearch={handleSearch}
+          onShowAll={handleShowAll}
+        />
+        {errorMessage && <Typography color='error'>{errorMessage}</Typography>}
+        {isLoading ? (
+          <Box sx={{ display: 'flex', justifyContent: 'center', alignItems: 'center', minHeight: '50vh' }}> 
+            <CircularProgress size={100} thickness={8} sx={{ color: '#4682B4'}}/>
+          </Box>
+        ) : (
+          <Box sx={{  display: 'flex', flexWrap: 'wrap', justifyContent: 'center', alignItems: 'center', gap: 3}}>
+            {memorizedCountries.map((country) => (
+            <CountryCard key={country.name.commom} country={country}/>
+            ))}
+          </Box>
+      )}      
     </Box>
     </div>
   );
