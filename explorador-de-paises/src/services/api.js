@@ -16,7 +16,7 @@ export const fetchCountries = async ({ countryName }) => {
             )
             : response.data;
 
-        return filteredCountries
+        return filteredCountries;
 
     } catch (error) {
         console.log('Error when searching for countries:', error);
