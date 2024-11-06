@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useMemo, useState } from 'react';
 import './App.css';
 import SearchForm from './components/SearchForm';
 import CountryCard from './components/CountryCard';
@@ -10,6 +10,8 @@ import { fetchCountries } from './services/api';
 function App() {
   const [countries, setCountries] = useState([]);
   const [errorMessage, setErrorMessage] = useState('');
+
+  const memorizedCountries = useMemo(() => countries, [countries]);
 
   const handleSearch = (searchParams) => {
     const { countryName } = searchParams;
@@ -60,7 +62,7 @@ function App() {
       />
       {errorMessage && <Typography color='error'>{errorMessage}</Typography>}
       <Box sx={{  display: 'flex', flexWrap: 'wrap', justifyContent: 'center', alignItems: 'center', gap: 3}}>
-        {countries.map((country) => (
+        {memorizedCountries.map((country) => (
           <CountryCard key={country.name.commom} country={country}/>
         ))}
       </Box>
