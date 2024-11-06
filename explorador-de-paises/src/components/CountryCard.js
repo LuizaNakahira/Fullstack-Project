@@ -21,10 +21,10 @@ function CountryCard({ country }){
                 <Typography color="rgb(5, 34, 10)">
                     Language: {country.languages
                         ? Object.values(country.languages).join(',')
-                        : 'Informação indispinível no momento'}
+                        : 'Information unavailable now'}
                 </Typography>
                 <Typography color="rgb(5, 34, 10)">
-                        Capital: {country.capital}
+                        Capital: {country.capital || 'Information unavailable now'}
                 </Typography>
 
             </CardContent>

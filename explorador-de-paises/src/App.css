@@ -45,6 +45,11 @@
   padding: 10px 100px;
 }
 
+.MuiButton-root.buttonSearch:hover, .MuiButton-root.buttonShowAll:hover{
+  background-color: #054b85;
+  transform: scale(1.05);
+}
+
 
 .MuiFormControl-root.searchForm{
   display: flex;

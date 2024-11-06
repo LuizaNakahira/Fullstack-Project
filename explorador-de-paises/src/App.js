@@ -32,12 +32,9 @@ function App() {
       }
     })
     .catch((error) => {
-      if (error.response && error.response.status === 404) {
-        setErrorMessage('Try again later.');
-        setCountries([]);
-      } else {
-        console.log("Error when searching for countries", error);
-      }
+      setErrorMessage('An error occurred. Please try again later.');
+      setCountries([]);
+      console.log("Error when searching for countries", error);
     });
   };
 
