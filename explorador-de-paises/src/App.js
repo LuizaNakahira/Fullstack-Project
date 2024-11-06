@@ -14,7 +14,7 @@ function App() {
 
   const memorizedCountries = useMemo(() => countries, [countries]);
 
-  const handleSearch = (searchParams) => {
+  const handleSearch = (searchParams) => {    
     const { countryName } = searchParams;
     
     if (!countryName) {
@@ -22,6 +22,8 @@ function App() {
       return;
     } 
 
+    setIsLoading(true);
+    const delay = 7000;
     fetchCountries({ countryName })
     .then((data) => {
       if (data.length === 0) {
@@ -36,7 +38,8 @@ function App() {
       setErrorMessage('An error occurred. Please try again later.');
       setCountries([]);
       console.log("Error when searching for countries", error);
-    });
+    })
+    .finally(() => setIsLoading(false), delay)
   };
 
   const handleShowAll = () => {
@@ -54,14 +57,18 @@ function App() {
   };
 
   return (
-    <div className='app-backgorund'>
+    <div className='app-background'>
       <Box sx={{  textAlign: 'center', p: 3, display: 'flex', flexDirection: 'column', alignItems: 'center'}}>
         <Typography variant='h2' gutterBottom className='MuiTypography-root title'>Countries Explorer</Typography>
         <SearchForm 
           onSearch={handleSearch}
           onShowAll={handleShowAll}
         />
-        {errorMessage && <Typography color='error'>{errorMessage}</Typography>}
+        {errorMessage && (
+          <Box sx={{ mt: 2, color: 'error.main', fontWeight: 'bold', border: '1px solid red', padding: 2, borderRadius: 1 }}>
+            <Typography color="error">{errorMessage}</Typography>
+          </Box>
+        )}
         {isLoading ? (
           <Box sx={{ display: 'flex', justifyContent: 'center', alignItems: 'center', minHeight: '50vh' }}> 
             <CircularProgress size={100} thickness={8} sx={{ color: '#4682B4'}}/>
