@@ -1,70 +1,28 @@
-# Getting Started with Create React App
+# Countries Explorer 🗺️
+- Este é um projeto de aplicação web que permite aos usuários explorar informações sobre diferentes países. O projeto foi desenvolvido utilizando React.js e consome dados da API REST Countries. A aplicação foi feita em inglês para seguir a linguagem da API.
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+## Funcionalidades
+- Busca de países por nome.
+- Exibição da bandeira, nome, região, idioma e capital.
+- Botões para:
+  - Exibir todos os países disponíveis.
+  - Pesquisar um país específico. 
+- Interface responsiva e estilizada com Material-UI.
+- Mensagens de erros para buscas inválidas.
 
-## Available Scripts
+### Tecnologias Usadas
+- React.js para construção da interface.
+- Material-UI para design e estilização dos componentes.
+- Axios para realizar requisições HTTP para a API REST Countries.
+- gh-pages para o deploy no GitHub Pages.
 
-In the project directory, you can run:
+#### Hooks implementados
+- useState: Para gerenciar o estado dos países e mensagens de erro.
+- useEffect: Para focar no campo de entrada ao carregar o formulário.
+- useMmemo: Para memorizar a lista de países e otimizar a renderização.
 
-### `npm start`
+##### API Usada
+- API: [REST COUNTRIES](https://restcountries.com/)
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
-
-The page will reload when you make changes.\
-You may also see any lint errors in the console.
-
-### `npm test`
-
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
-
-### `npm run build`
-
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
-
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
-
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
-
-### `npm run eject`
-
-**Note: this is a one-way operation. Once you `eject`, you can't go back!**
-
-If you aren't satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
-
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you're on your own.
-
-You don't have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn't feel obligated to use this feature. However we understand that this tool wouldn't be useful if you couldn't customize it when you are ready for it.
-
-## Learn More
-
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
-
-To learn React, check out the [React documentation](https://reactjs.org/).
-
-### Code Splitting
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
-
-### Analyzing the Bundle Size
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
-
-### Making a Progressive Web App
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
-
-### Advanced Configuration
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
-
-### Deployment
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
-
-### `npm run build` fails to minify
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+###### Acesso ao projeto
+- [Countries Explorer - GitHub Pages](https://LuizaNakahira.github.io/Fullstack-Project)
